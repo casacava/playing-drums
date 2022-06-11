@@ -10,39 +10,48 @@
 
   <div class="keys">
     <div data-key="65" class="key">
-      <kbd>A</kbd>
+      <kbd><img src="https://cdn-icons-png.flaticon.com/512/7096/7096435.png" />
+        <br>A</kbd>
       <span class="sound">clap</span>
     </div>
     <div data-key="83" class="key">
-      <kbd>S</kbd>
+      <kbd><img src="https://cdn-icons-png.flaticon.com/512/7194/7194682.png" />
+        <br>S</kbd>
       <span class="sound">hihat</span>
     </div>
     <div data-key="68" class="key">
-      <kbd>D</kbd>
+      <kbd><img src="https://cdn-icons.flaticon.com/png/512/4593/premium/4593526.png?token=exp=1654985622~hmac=9d6d2c1713f9faa2b337ef89c4ff234e" /> 
+        <br>D</kbd>
       <span class="sound">kick</span>
     </div>
     <div data-key="70" class="key">
-      <kbd>F</kbd>
+      <kbd><img src="https://cdn-icons-png.flaticon.com/512/4591/4591990.png" />
+        <br>F</kbd>
       <span class="sound">openhat</span>
     </div>
     <div data-key="71" class="key">
-      <kbd>G</kbd>
+      <kbd><img src="https://cdn-icons.flaticon.com/png/512/4593/premium/4593534.png?token=exp=1654985622~hmac=f3b93383f35d3d05f7f9eb13b79c360e" />
+        <br>G</kbd>
       <span class="sound">boom</span>
     </div>
     <div data-key="72" class="key">
-      <kbd>H</kbd>
+      <kbd><img src="https://cdn-icons-png.flaticon.com/512/2300/2300824.png" />
+        <br>H</kbd>
       <span class="sound">ride</span>
     </div>
     <div data-key="74" class="key">
-      <kbd>J</kbd>
+      <kbd><img src="https://cdn-icons.flaticon.com/png/512/4593/premium/4593473.png?token=exp=1654985622~hmac=d8704f1c75e617c915023dcdf85ed0c2" />
+        <br>J</kbd>
       <span class="sound">snare</span>
     </div>
     <div data-key="75" class="key">
-      <kbd>K</kbd>
+      <kbd><img src="https://cdn-icons.flaticon.com/png/512/4593/premium/4593451.png?token=exp=1654985622~hmac=d7fb93ec5823961eeac97f7e765e094a" />
+        <br>K</kbd>
       <span class="sound">tom</span>
     </div>
     <div data-key="76" class="key">
-      <kbd>L</kbd>
+      <kbd><img src="https://cdn-icons.flaticon.com/png/512/4593/premium/4593551.png?token=exp=1654985622~hmac=433bc10be4e75d04500d7e1f617290da" />
+        <br>L</kbd>
       <span class="sound">tink</span>
     </div>
   </div>
@@ -57,26 +66,8 @@
   <audio data-key="75" src="/sounds/tom.wav"></audio>
   <audio data-key="76" src="/sounds/tink.wav"></audio>
 
-<script>
+<script src="script.js"></script>
 
-function playSound(e) {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-    if(!audio) return; //stop the function from running all together
-    audio.currentTime = 0; //rewind to the start
-    audio.play();
-    key.classList.add('playing');
-}
-
-function removeTransition(e) {
-    if(e.propertyName !== 'transform') return; //skip it if it's not a transform
-    this.classList.remove('playing');
-}
-const keys = Array.from(document.querySelectorAll('.key'));
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-
-window.addEventListener('keydown', playSound); 
-</script>
 
 
 </body>
